@@ -198,9 +198,9 @@ for (ii = 0; ii < fileList.length; ii++) { // For loop runs through all files/ i
 	    quality = checkSlices(userX, userY, pointSlice, userSliceRadius);
 	    centX = Table.get("Center X", row); // Center X and Y overlay selection will be saved in the table
 	    centY = Table.get("Center Y", row);
-    if (quality == "G") {
-    	quality = checkDuplicates(centX,centY,EBcount);
-    }
+    //if (quality == "G") {
+    //	quality = checkDuplicates(centX,centY,EBcount);
+    //}
     Table.set("Quality", row, quality); 
     if (ifBadSelectFromUserMark == true && quality == "B") {
 	  	Table.set("Center X", row, userX); // Users X and Y overlay selection will be saved in the table
@@ -241,6 +241,9 @@ for (ii = 0; ii < fileList.length; ii++) { // For loop runs through all files/ i
       quality = "B";
     } else {
       quality = "G";
+    }
+    if (quality == "G") {
+    	quality = checkDuplicates(centX,centY,EBcount);
     }
     Table.set("Quality" , row, quality);
     Table.update;
@@ -1550,7 +1553,7 @@ function checkDuplicates(centX,centY,EBcount){
 	X = Table.getColumn("Center X");
 	Y = Table.getColumn("Center Y");
 	Q = Table.getColumn("Quality");
-	for (i = 1; i < EBcount+1; i++) {
+	for (i = 2; i < EBcount+1; i++) {
 		currRow1 = bottomofTable - i;
 		//print(EBcount +" in for loop " + currRow1);	
 		if (Q[currRow1] == "G") {
@@ -1560,6 +1563,7 @@ function checkDuplicates(centX,centY,EBcount){
 			//print(X2 +" , "+Y2 );
 			if (centX == X2 && centY == Y2) {
 				quality = "B";
+				//print(quality);
 			}
 		}
 	}
