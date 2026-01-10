@@ -2,31 +2,32 @@
 
 Extranuclear DNA bodies are cellular structures containing DNA that are separate from the primary nucleus and surrounded by a nuclear envelope. Extranuclear DNA bodies arise in mammalian cells primarily during mitosis and are called micronuclei (MN). MN have been extensively studied as they are frequently observed in human cancer cells, and their presence correlates with DNA damage and/or aberrant chromosome segregation. Similar to human cancer cells, the model eukaryote Tetrahymena thermophila produces extranuclear DNA bodies, called chromatin extrusion bodies (EBs). EBs are structurally similar to MN and are also correlated with DNA damage and chromatin disruptions. Importantly, the molecular processes that produce and govern EB fate in Tetrahymena are not fully understood. Currently, the quantification of MN and EBs is primarily achieved by calculating their frequency and/or manually outlining their shape to measure area. Although useful, manual outlining is time-consuming, difficult to reproduce, and prone to human bias. To overcome these limitations, we propose a semi-automated method of measuring an EB’s area: FIJI derivative threshold analysis for centered circles (FIJIDTAcc). This method is reproducible and robust across microscope modalities, enabling the scientific community to more accurately compare the sizes of extranuclear DNA bodies across experiments and biological systems.
 
+# User Manual
 
 This instruction is for the ImageJ/FIJI script named FIJI Derivative Threshold Analysis for centered circles (FIJIDTAcc), which robustly determines the area of Tetrahymena chromatin extrusion bodies (EBs). FIJI is an open-source image analysis software that can run scripts like FIJIDTAcc written in the ImageJ macro language (Schindelin 2012). The algorithm used in FIJIDTAcc defines an area as a function of initial parameters and coordinates, thereby enabling a more consistent analysis of EBs. The initial coordinates can be overlaid on Tiff images of DAPI-stained cells captured on a wide-field microscope at 40x or 63x magnification. Step 1 is to open FIJI and FIJIDTAcc. Steps 2 and 3 are to open and mark images. Step 4 begins with understanding how to set the initial parameters, then pressing run. Depending on your chosen parameters, the workflow between steps 4 and 5 will change. Regardless, step 5 focuses on analyzing the resulting areas and CSV file.
 
-Step 1:
+# Step 1:
  <img width="975" height="229" alt="image" src="https://github.com/user-attachments/assets/c0201d95-9bc1-4fd9-9f64-e0b3c5a715fe" />
 
 
 Open FIJI and the FIJIDTA script. Although we generate our images using widefield fluorescence microscopy (Appendix Figure 1), FIJIDTA could eventually be applied to other imaging modalities. 
 
-1.	Open FIJI by double left-clicking the ImageJ/ FIJI icon. Once opened, the general user interface (GUI) shown below should appear.
+Open FIJI by double left-clicking the ImageJ/ FIJI icon. Once your version of FIJI is downloaded, open the general user interface (GUI shown below).
 
  <img width="767" height="138" alt="image" src="https://github.com/user-attachments/assets/f2eecc8d-d2de-410a-99f0-45c5991f9ebc" />
 
 
-If FIJI is not already installed, go to Fiji Downloads (imagej.net) and follow the installation prompts to download FIJI.
+If FIJI is not already installed, go to Fiji Downloads (https://imagej.net/software/fiji/downloads) and follow the installation prompts to download FIJI.
 
-2.	FIJIDTAcc can be opened through the FIJI GUI by going to file, then clicking open (or pressing Ctrl+O) and choosing the file. FIJIDTAcc can also be dragged and dropped from the files window to the gray bar in the GUI. The opened window with the code should have a “Run” button at the top or bottom.
+FIJIDTAcc can be opened through the FIJI GUI by going to file, then clicking open (or pressing Ctrl+O) and choosing the file. FIJIDTAcc can also be dragged and dropped from the files window to the gray bar in the GUI. The opened window with the code should have a “Run” button at the top or bottom.
 
-Download the FIJIDTAcc script by going to: ()
+Download the FIJIDTAcc script by going to: (https://github.com/patpando/FIJIDTA/blob/main/20250511_FIJIDTAccV1A.ijm)
 
-Step 2:
+# Step 2:
  <img width="975" height="236" alt="image" src="https://github.com/user-attachments/assets/52e587b8-9e15-4f88-847b-23d2fa6acdc4" />
 
 
-Step 3:
+# Step 3:
  
 <img width="975" height="390" alt="image" src="https://github.com/user-attachments/assets/68703a87-b7eb-449c-9d88-4f3ce0dff169" />
 
@@ -35,7 +36,7 @@ Step 3:
 
 
 
-Step 4
+# Step 4
  <img width="975" height="341" alt="image" src="https://github.com/user-attachments/assets/b1866774-79cf-4c88-8be5-236a46863414" />
 
 
@@ -97,6 +98,7 @@ Batch mode (True): If the box is selected, then EBs are automatically assigned a
 Post-process results (True): If the box is selected, EBs are saved in the EB box and the context box. All the EBs are then placed into a stack after they have all been processed. The user can navigate the stack and adjust the quality of an EB if needed. 
 
 Manual Checkbox (MC) segmentation options
+ 
  <img width="1060" height="351" alt="image" src="https://github.com/user-attachments/assets/2e35a58b-0a05-43ca-9860-8c67014c444c" />
 
 
@@ -105,6 +107,7 @@ MC 1, Only use user mark (onlyUseUserMark = False): No slices are checked, and a
 MC 2 If EB is of bad quality, center the selection around the user mark (ifBadSelectFromUserMark = False): After all the slices have been compared and no good quality selections have been found, then the selection is centered around the user's mark. It's recommended to use this feature with the third or fourth checkbox, which would allow users to create a selection around their chosen coordinate.
 
 MCs 3, 4, and 5 create a convex hull around the threshold selection. The user can press OK when prompted in a dialog box, or click around the signal to create their own selection.
+
 <img width="493" height="463" alt="image" src="https://github.com/user-attachments/assets/5554af96-66cc-4d94-abce-456f9e8b5ede" />
 
  
@@ -158,12 +161,13 @@ If a user has already marked images in a folder, press Run (or press Ctrl+R) and
 <img width="761" height="469" alt="image" src="https://github.com/user-attachments/assets/98305093-96a4-4390-9442-5df4a1957702" />
 
 
-1.	Manually determining the quality of the EB: If batch mode is not selected, the user is asked whether the EB is acceptable after a final threshold selection. Clicking “Yes” means the EB is good and will get a “G” in the table under “Quality”. Clicking “No” means the EB is bad and it will get a “B” in the table. Only EBs that are acceptable should be used when calculating the average EB size for a strain. 
-2.	Automatic determination of EB quality: If batch mode is selected, then all the EBs will be processed, and their quality will automatically be determined. 
+Manually determining the quality of the EB: If batch mode is not selected, the user is asked whether the EB is acceptable after a final threshold selection. Clicking “Yes” means the EB is good and will get a “G” in the table under “Quality”. Clicking “No” means the EB is bad and it will get a “B” in the table. Only EBs that are acceptable should be used when calculating the average EB size for a strain. 	
+
+Automatic determination of EB quality: If batch mode is selected, then all the EBs will be processed, and their quality will automatically be determined. 
  
 <img width="868" height="608" alt="image" src="https://github.com/user-attachments/assets/ea312dbb-c80a-4221-9dd5-c15cafa2ad95" />
 
-Step 5:
+# Step 5:
 
  
   <img width="975" height="200" alt="image" src="https://github.com/user-attachments/assets/e500bf16-d24e-41b8-8139-5c223ebc3b1b" />
