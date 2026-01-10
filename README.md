@@ -102,6 +102,9 @@ Batch mode (True): If the box is selected, then EBs are automatically assigned a
 Post-process results (True): If the box is selected, EBs are saved in the EB box and the context box. All the EBs are then placed into a stack after they have all been processed. The user can navigate the stack and adjust the quality of an EB if needed. 
 
 Manual Checkbox (MC) segmentation options
+
+<img width="764" height="475" alt="image" src="https://github.com/user-attachments/assets/f62c819f-aa06-4567-b15d-ccceb2fc051a" />
+
  
  <img width="1060" height="351" alt="image" src="https://github.com/user-attachments/assets/2e35a58b-0a05-43ca-9860-8c67014c444c" />
 
@@ -112,7 +115,7 @@ MC 2 If EB is of bad quality, center the selection around the user mark (ifBadSe
 
 MCs 3, 4, and 5 create a convex hull around the threshold selection. The user can press OK when prompted in a dialog box, or click around the signal to create their own selection.
 
-<img width="493" height="463" alt="image" src="https://github.com/user-attachments/assets/5554af96-66cc-4d94-abce-456f9e8b5ede" />
+
 
  
 MC 3 Researchers manually outline good and bad EBs (ResearcherManualOutlineBadGood = False): After slices are compared and the EB’s best slice and selection is found, users can manually change the convex hull selection, whether the selection was Good or Bad quality. 
@@ -174,7 +177,8 @@ Automatic determination of EB quality: If batch mode is selected, then all the E
 # Step 5:
 
  
-  <img width="975" height="200" alt="image" src="https://github.com/user-attachments/assets/e500bf16-d24e-41b8-8139-5c223ebc3b1b" />
+<img width="1268" height="254" alt="image" src="https://github.com/user-attachments/assets/3eb5866c-ea16-4c78-90c1-23963a3a9b3f" />
+
 
 
 <img width="986" height="196" alt="image" src="https://github.com/user-attachments/assets/157abfe3-9819-44aa-97ea-e4f3957e67f7" />
@@ -186,34 +190,80 @@ Interpret results.
 Details about the saved images: Depending on the quality of the EB, EB boxes will be saved with either “G_” or “B_” at the beginning of their title. Their title also includes the title of the TIFF image they come from and their EB number, which correlates to the order in which EBs were marked in the image. The pixel selection that determined the area is also saved with the image as an overlay.
 
 Label: Filename of image where EB came from.
+
 Mark: EB number in image. Decided by the user that marked the image. If sort coordinates is		true then it’s the marks number going from left to right.
+
 Quality: If “G” then the EB is acceptable, and the selection can be used to calculate an average 		 area. If “B” then the EB is bad. If “S” then the EB is saturated.
+
 Area: Area in microns of EB selection.
+
 Mean: Mean pixel intensity of selected EB.
+
 EB threshold: Threshold set from DTA that decides the selected signal region.
+
 Watershed: A true or false result to whether the watershed function was run on the EB. 
+
 Circularity: The selections circularity is measured using the equation (4pi(area/perimeter^2)).
+
 Center X/ Center Y: Coordinates of the brightest pixel in EB and center of EB box.
+
 Slice: Most in focus/ brightest determined slice.
+
 User X Y: Users initial coordinate selection of center of EB.
+
 User slice: User’s initial chosen slice of EB.
+
 First circle: If “C”, then a circle with a DTA determined size was used. If “SC” then the default
  minimum circle size (chosen in the variables dialog box) was used.
+
 First radius in microns: Radius of first circle in microns.
+
 Slices: All the slices of an image become columns in the table, but only the compared slices
 become populated with analysis details. Going from left to right the input for every slice
 is quality, area, intensity, and the X Y center. If the center pixel was the center of
 multiple pixels with the same intensity, then the intensity column will include a width “W” and height “H” of the size of the multiple pixel selection.
+
+
 DTA direction and intensity: Each line created for DTA has a column labeled with its direction
 and the result is the intensity where there is the steepest drop in intensity. 
 EB quality checks: If the EB did not meet one of the quality criteria (minimum circularity, center 
 of mass in 1st circle, centroid in 1st circle or corner selected), then a 1 is placed in the 
 column.
-To run the analysis on the data using Excel and R (Excel data) or Python (log data) use the GitHub link:
+
+To run the analysis on the data using R (Excel data) or Python (log data) use the GitHub link:
+
+https://github.com/patpando/MannWhitU-WilcoxonStatsR-Python
+
 patpando/MannWhitU-WilcoxonStatsR-Python: Run Mann-Whitney U Tests or Wilcoxon signed rank tests on R or Python
 
-<img width="938" height="981" alt="image" src="https://github.com/user-attachments/assets/06f23f25-60e0-4338-9bd0-07a1be153229" />
 
+
+To contiue research into the methods of finding and measuring EBs using convolutional neural networks use links:
+
+<img width="1055" height="829" alt="image" src="https://github.com/user-attachments/assets/ba4e7e3b-5e34-4d8f-83c0-2c2d7336a736" />
+
+
+https://github.com/patpando/CNNEBFinder
+
+
+https://github.com/patpando/CNN2EBSegmentation
+
+
+<img width="598" height="845" alt="image" src="https://github.com/user-attachments/assets/38c660fd-ffca-4306-ab40-d056deccd137" />
+
+Figure 6: The workflow researchers follow to obtain EB areas with FIJIDTAcc. The five main steps to analyze cells with EBs are listed. First, the user must capture images of a DAPI-stained slide and download the FIJI (link) and FIJIDTAcc (link) software. Second, the user opens their images and the FIJIDTAcc software in FIJI. Researchers follow steps 3I through 3V to mark their images in FIJI using the region of interest (ROI) manager and place images in a designated folder. The user runs FIJIDTAcc in the fourth step by filling out the dialog box and confirming the quality of each EB. In the end, the user will have a results folder with an Excel file that contains information on each EB's quality, area, mean intensity, and other relevant details. The folder will also contain a log.txt file and EBs saved in their respective EB boxes, titled “G/B_Label_EB#” in a folder. Scale bars =1 μm.
+
+
+<img width="614" height="867" alt="image" src="https://github.com/user-attachments/assets/6d3bf90a-bb3d-4e13-97af-35e0904e9321" />
+
+Figure 16: FIJIDTA's user interface and default parameters are shown. The initial dialog box that appears after a user presses Run includes labels indicating which category each input belongs to. The first 4 parameters are the analysis area around the user’s initial mark. Parameters 5,6, and 7 are result preferences. Parameters 8,9, and 10 are acquisition details. Parameters 11 and 12 are where the user enters the file paths after clicking Browse. Checkboxes 1-6 are the result and processing preferences. The 3rd checkbox, “Table with labels,” is shown with an example table and label. If it is selected, the results table displays all result labels in the first row. An example of the pop-up dialog box that appears with every image when the 4th checkbox “Images are pre-marked” is unchecked is shown. If the 5th checkbox, “Batch mode: Auto analyze an EB’s quality,” is not selected, after each EB is analyzed, the user answers a series of prompts to determine its quality. An example of the prompts with the EB from Figure 15A is shown. Batch mode relies on result preferences 6 and 7. Post-process results is the 6th checkbox and uses result preference 5. More details are explained in Figure 19. (scale bar =1 μm)
+
+
+<img width="621" height="833" alt="image" src="https://github.com/user-attachments/assets/fc817a38-5e01-4a74-b098-8581c32517dc" />
+
+Figure 19: Post Process Selections. If the 6th checkbox in the dialog box “Post process results” is selected, then parameter 5 will set the size of the large context box. After every EB is measured, selections are placed into the center of a stack. The user scrolls through images in the stack and answers the prompts. The EB from Figure 15A and 17 is shown. The dashed arrow represents how the user scrolls through slices to look at different EBs. The second EB’s max intensity is lowered to 500 and shows a selection that doesn’t encompass the whole signal. The first prompt allows the user to scroll through slices and look at selections. If any mislabeled selections are found, the user clicks OK and presses yes in the next pop-up dialog box. The example shows an EB that was labeled as good but should be changed to bad. If none are found, the user will press OK then no. (scale bar =1 μm)
+
+<img width="938" height="981" alt="image" src="https://github.com/user-attachments/assets/06f23f25-60e0-4338-9bd0-07a1be153229" />
  
 Supplemental Figure 1: An EB’s selections shown across 9 slices. The center slice 13 is the user’s chosen slice. The two leftmost columns show the EB without any selection. the third column shows the first circle made in the FIJIDTAcc analysis. The first circle is drawn across all 9 slices to find the highest-intensity pixel (HIP) within it. The HIP is represented by the white pixel. On the right, the selections are centered around the HIP in the fourth column, with the slice, area, and mean intensity shown. (Scale bar = 1 μm)
 
