@@ -36,15 +36,19 @@ Download the FIJIDTAcc script by going to: (https://github.com/patpando/FIJIDTA/
 
 
 
-# Step 4
+# Step 4:
  <img width="975" height="341" alt="image" src="https://github.com/user-attachments/assets/b1866774-79cf-4c88-8be5-236a46863414" />
 
 
  Understanding your input parameters and what setting you want to use. 
 
-Before running FIJIDTAcc, a user should be familiar with the details of their image data and understand the meanings of the parameters in the initial dialog box (shown below and in Figure 16). To find the pixel dimensions of an open image using the FIJI GUI, click on “Image” in the GUI, then click on “Properties…” (or press Ctrl+Shift+P) (example shown on the right). Default parameters are set to measure EBs for Dr. Lee’s lab at Western Washington University, taken at 40x magnification. We expect to measure 3D images like the one shown in Appendix Figure 2. Micron inputs should be divisible by pixel width, so the sampled area is a known number of pixels. The code tends to round down or use the “floor” function when dividing input microns by pixel dimensions. For example, if an even number of slices, n, is to be compared, then n-1 slices are checked. To better understand the slice comparison, refer to Supplemental Figure 1. Default parameters, along with further explanations, are shown below. These variables can be changed in the gray dialog box below after pressing run or in the code itself. 
- 
+To find the pixel dimensions of an open image using the FIJI GUI, click on “Image” in the GUI, then click on “Properties…” (or press Ctrl+Shift+P) (example shown below).
+
 <img width="450" height="697" alt="image" src="https://github.com/user-attachments/assets/c514190c-30aa-4664-8d71-e948e9e45cdf" />
+
+Before running FIJIDTAcc, a user should be familiar with the details of their image data and understand the meanings of the parameters in the initial dialog box (shown below and in Figure 16). Default parameters are set to measure EBs for Dr. Lee’s lab at Western Washington University, taken at 40x magnification. We expect to measure 3D images like the one shown in Appendix Figure 2. Micron inputs should be divisible by pixel width, so the sampled area is a known number of pixels. The code tends to round down or use the “floor” function when dividing input microns by pixel dimensions. For example, if an even number of slices, n, is to be compared, then n-1 slices are checked. To better understand the slice comparison, refer to Supplemental Figure 1. Default parameters, along with further explanations, are shown below. These variables can be changed in the gray dialog box below after pressing run or in the code itself. 
+ 
+
 
 <img width="975" height="770" alt="image" src="https://github.com/user-attachments/assets/f11bd0a3-d953-4445-8c14-bc2adb22a8df" />
 
@@ -223,7 +227,8 @@ Appendix A
 
 Appendix A Figure 1. Light path and resolution in widefield fluorescence microscopy. (A) A fluorescence microscope passes white light through an excitation filter, which only allows a specific wavelength of light to pass through. The dichroic mirror reflects the excitation light into the objective. For DAPI visualization, the system uses filters, and a dichroic mirror optimized for ultraviolet (358 nanometer (nm)) excitation and blue (457 nm) emission wavelengths (λ). The objective focuses the light onto the fluorescent sample which emits wavelengths greater than the excitation wavelength. The longer wavelengths travel back through the objective, pass through the dichroic mirror and emission filter, and are collected by the detector via the tube lens. The diffraction pattern of a point source of light forms an Airy disk on the detector. (B) The numerical aperture (NA) of an objective is found by accounting for the refractive index (n), given by the medium between the sample and objective, and by knowing theta. The refractive index of air is 1 and of oil is 1.52. Theta is the half angle of light acceptance. (C) An objective with a low NA accepts less light, has less resolution, and creates larger airy disks compared to one with a high NA. (D) The Airy disk has a high intensity center with concentric rings surrounding it. With multiple point sources of light, the resolution between them can be chosen by the Rayleigh criterion λ0.61/NA.
 
-<img width="914" height="1295" alt="image" src="https://github.com/user-attachments/assets/f4684642-1860-4d50-beee-e725658e184d" />
+<img width="635" height="892" alt="image" src="https://github.com/user-attachments/assets/3bec9233-4a7f-43c9-b1f9-9715488d1aac" />
+
 
 
 Appendix A Figure 2: Creating a 3-dimensional image using fluorescence microscopy. (A) In the X Y dimension, the light (shown in white) represents the expected circular shape with a known radius (1.02 μm or 6 pixels) and area (3.27 μm2). The circle is captured on a grid of pixels to create the image. Each pixel is a known size (0.17 μm x 0.17 μm or 0.0289 μm2), allowing the area of the pixelated circle to be calculated (3.58 μm2). (B) The intensity gradient of an image is determined by the photon emission of the sample at a plane of focus. Ultraviolet light (shown in purple) excites the sample (the white sphere) which emits blue photons. Photons are captured by the detector which is made of silicon photodiodes. The photons interact with a poly silicon gate layer (dark blue), then excite electrons in a layer of silicon dioxide (gray). The electrons (black dots) are stored in a silicon well then converted to an intensity value with more electrons corresponding to a greater intensity. (C) The generated image is shown in black and white with a high intensity center and a gradual intensity change outwards. (D) A 3D intensity profile of the measured image is shown with an intensity range from 0 to 4096 and a grayscale color scheme applied. (E) 5 planes of focus in the X Y dimension are captured to represent the Z dimension and volume of the specimen (white sphere). (F) The specimen is represented by a sphere and the estimated area of the sphere sliced in 5 planes of focus. The 3D PSF kernel, which affects the intensity of every pixel, is represented in a cube and is a white oval in the center with cones of light emitted from the center to the top and bottom. The light captured from the expected specimen, the 3D PSF kernel and any accumulated noise are blended and convolved (*) together to create the measured image. 
