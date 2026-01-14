@@ -1,4 +1,4 @@
-/*ReadMe: This code was written under advisement of WWU Professors Nick Galati and Suzanne Lee. Students: Patrick Pando, Maya Matsumoto,
+/*ReadMe: This code was written under advisement of WWU Professors Nick Galati and Suzanne Lee. Students: Patrick Pando
 Images should have overlay of point tool selection inside EBs and user selections should be on the Z slice with the highest estimated mean pixel intensity for Default setting.
 FIJIDTA’s algorithm starts by opening a dialog box for paramters (function dialogVar). Then it sets variables, makes the table (function createTable) and images are opened using a for loop.
 An open image's coordinates are placed in an array (function ROItoArr). From here a large portion of the code is focused on re-establishing the expert-placed mark to the EB's brightest slice
@@ -1055,7 +1055,7 @@ function graphArea() {
 		Plot.setFormatFlags("11000000000011");
 		Plot.setLimits( - 1, 20, NaN, NaN);
 	}
-	if (tableLabels = true) {
+	if (tableLabels == true) {
 		ALLEBs = Table.size - 1;
 	} else {
 		ALLEBs = Table.size;
