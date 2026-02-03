@@ -66,22 +66,21 @@ Variables (Defaults)
 
 6.	Minimum selection area (1 pixel): When slices are compared or batch mode is true, the selection must be at least the minimum size to be of good quality. Use the variable “minAreaSizeum” under the pixel size-dependent global variables to change unit
 
-7.	Minimum circularity (0.5): When slices are compared or when batch mode is true, the selection is evaluated using the equation (4*pi*Area)/Perimeter^2, and it must have a resulting circularity greater than the minimum to be considered of good quality. To run watershed, the selection must be above the minimum + the watershed bias amount (see code settings for more info). The amount must be between 0 and 1. 
+7.	Minimum circularity (0.5): When slices are compared or when batch mode is true, the selection is evaluated using the equation (4*pi*Area)/Perimeter^2, and it must have a resulting circularity greater than the minimum to be considered of good quality. To run watershed, the selection must be above the minimum + the watershed bias amount (see code settings for more info). The amount must be between 0 and 1. For more information on the watershed separation algorithm, refer to Appendix B Figure 1
 
-For more information on the watershed separation algorithm, refer to
- Appendix B Figure 1
+8. DAPI channel (2): Choose the channel with DAPI staining. In this case it is the 2nd channel.
 
-8.	Saturated threshold (4095): Detect EBs that are saturated and have the highest possible intensity. The input to this parameter is also used to set the upper bound for the threshold. When a threshold is set, the minimum/lower bound threshold will vary with the threshold results, but the maximum/upper bound threshold should be large enough to include all pixel intensities.
+9.	Saturated threshold (4095): Detect EBs that are saturated and have the highest possible intensity. The input to this parameter is also used to set the upper bound for the threshold. When a threshold is set, the minimum/lower bound threshold will vary with the threshold results, but the maximum/upper bound threshold should be large enough to include all pixel intensities.
 
-9.	Character(s) (“_set”): The title of the table is made using the name of the first file in the image folder. The table title’s name is the first file’s name minus the character(s) input and everything after. Image titles follow a date_strain_set#_pos# format.
+10.	Character(s) (“_set”): The title of the table is made using the name of the first file in the image folder. The table title’s name is the first file’s name minus the character(s) input and everything after. Image titles follow a date_strain_set#_pos# format.
 
  <img width="668" height="490" alt="image" src="https://github.com/user-attachments/assets/ed7baa7d-be22-40b4-9742-fbe9a28caa2f" />
 
-10.	File directory of images: File where images are held. If default setting is chosen, images should be pre-marked.  
+11.	File directory of images: File where images are held. If default setting is chosen, images should be pre-marked.  
  
 <img width="659" height="484" alt="image" src="https://github.com/user-attachments/assets/ce878509-f180-4078-8b65-ed2eb2b8ffc8" />
 
-11.	File directory for results: The file directory where the resulting EB boxes and the results table are automatically saved is selected by clicking the “browse” button. The file can be created before running FIJIDTAcc or by pressing Create New Folder in the pop-up file directory window shown above in the red box.
+12.	File directory for results: The file directory where the resulting EB boxes and the results table are automatically saved is selected by clicking the “browse” button. The file can be created before running FIJIDTAcc or by pressing Create New Folder in the pop-up file directory window shown above in the red box.
 
 
 
