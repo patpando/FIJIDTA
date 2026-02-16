@@ -19,14 +19,15 @@ Open FIJI by double left-clicking the ImageJ/ FIJI icon. Once your version of FI
 
 If FIJI is not already installed, go to Fiji Downloads (https://imagej.net/software/fiji/downloads) and follow the installation prompts to download FIJI.
 
-FIJIDTAcc can be opened through the FIJI GUI by going to file, then clicking open (or pressing Ctrl+O) and choosing the file. FIJIDTAcc can also be dragged and dropped from the files window to the gray bar in the GUI. The opened window with the code should have a “Run” button at the top or bottom.
+FIJIDTAcc can be opened through the FIJI UI by going to file, then clicking open (or pressing Ctrl+O) and choosing the file. FIJIDTAcc can also be dragged and dropped from the files window to the gray bar in the GUI. The opened window with the code should have a “Run” button at the top or bottom.
 
 Download the FIJIDTAcc script by going to: (https://github.com/patpando/FIJIDTA/blob/main/20250511_FIJIDTAccV1A.ijm)
 
 # Step 2:
  <img width="975" height="236" alt="image" src="https://github.com/user-attachments/assets/52e587b8-9e15-4f88-847b-23d2fa6acdc4" />
 
-It is also important to go to Analyze and then Set Measurements. Assure that Area, Min & max gray value, Center of mass, Shape descriptors, Mean gray value, Centroid and Stack position
+In the FIJI GUI, it is also important to go to Analyze, then click Set Measurements and assure that Area, Min & max gray value, Center of mass, Shape descriptors, Mean gray value, Centroid and Stack position are all checked before running the code.
+
 
 <img width="363" height="566" alt="image" src="https://github.com/user-attachments/assets/32d2c51c-39db-4842-99fb-101604cbd3ee" />
 
