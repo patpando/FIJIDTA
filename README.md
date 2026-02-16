@@ -26,6 +26,11 @@ Download the FIJIDTAcc script by going to: (https://github.com/patpando/FIJIDTA/
 # Step 2:
  <img width="975" height="236" alt="image" src="https://github.com/user-attachments/assets/52e587b8-9e15-4f88-847b-23d2fa6acdc4" />
 
+It is also important to go to Analyze and then Set Measurements. Assure that Area, Min & max gray value, Center of mass, Shape descriptors, Mean gray value, Centroid and Stack position
+
+<img width="363" height="566" alt="image" src="https://github.com/user-attachments/assets/32d2c51c-39db-4842-99fb-101604cbd3ee" />
+
+
 
 # Step 3:
  
